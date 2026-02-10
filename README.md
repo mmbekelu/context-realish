@@ -74,6 +74,18 @@ python main.py
 Run tests:
 python -m unittest discover -s tests -p "test_*.py"
 
+TEST MATRIX (v0.1)
+------------------
+High-level test cases showing expected behavior and stop points.
+
+| Test | Input | Expected | Stops at |
+|---|---|---|---|
+| missing action | {"role":"user"} | reject | schema |
+| delete as user | {"role":"user","action":"delete"} | reject | rules |
+| banned content | {"role":"user","action":"read","prompt":"..."} | reject | guardrails |
+| safe request | {"role":"user","action":"read","prompt":"hi"} | pass | ai (optional) |
+
+
 
 HOW TO USE
 ----------
